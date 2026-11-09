@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #f1f4f9;
+  --color-navy-100: #dfe6f0;
+  --color-navy-200: #c3cfe0;
+  --color-navy-600: #46597a;
+  --color-navy-700: #33466a;
+  --color-navy-800: #1f3358;
+  --color-navy-900: #12264a;
+  --color-navy-950: #0b1a36;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-navy-700 antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply text-navy-900;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-emerald-600);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Navy text keeps emerald-600 buttons above the 4.5:1 contrast minimum. */
+  .btn-primary,
+  .btn-outline {
+    @apply inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-lg px-5 font-bold transition-colors;
+  }
+  .btn-primary {
+    @apply bg-emerald-600 text-navy-950 hover:bg-emerald-500;
+  }
+  .btn-outline {
+    @apply border-2 border-navy-900 text-navy-900 hover:bg-navy-50;
+  }
+  .field-input {
+    @apply block min-h-12 w-full rounded-lg border border-navy-200 bg-white px-3.5 py-2.5 text-base text-navy-900 placeholder:text-navy-600/70 focus:border-emerald-600;
+  }
+  .field-input[aria-invalid="true"] {
+    @apply border-red-600;
+  }
+  .wrap {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+  .kicker {
+    @apply text-sm font-bold tracking-wide text-emerald-700 uppercase;
+  }
+}
